@@ -22,13 +22,16 @@ public class User {
     private String email;
     private String password;
     private String name;
-    private String lastname;
+    @Column(name = "last_name")
+    private String lastName;
     private String phone;
+    @Column(name = "registered_at")
     private Date registeredAt;
     private String image;
     private Boolean status;
     @PrePersist
     private void prePersist(){
         registeredAt = new Date();
+        status = true;
     }
 }
