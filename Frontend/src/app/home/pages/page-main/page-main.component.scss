@@ -1,0 +1,27 @@
+.main-container {
+  height: 100%;
+
+  .sidenav {
+    transition: width 0.2s ease-out;
+    width: 4rem;
+    .sidenav-container {
+      height: 100%;
+      .sidenav-button {
+        margin-top: auto;
+        margin-left: auto;
+        margin-right: 0.6rem;
+      }
+    }
+  }
+  .expand {
+    width: 255px;
+  }
+}
+.content-collapsed {
+  transition: all 0.2s ease-out;
+  margin-left: 63.2px !important;
+}
+.content-expanded {
+  transition: all 0.2s ease-out;
+  margin-left: 254.2px !important;
+}

@@ -1,0 +1,28 @@
+<mat-sidenav-container class="main-container">
+  <mat-sidenav
+    #sidenav
+    [mode]="'side'"
+    opened
+    class="sidenav"
+    [class.expand]="expanded"
+  >
+    <div
+      class="sidenav-container"
+      fxLayout="column"
+      fxLayoutAlign="space-between"
+    >
+      <app-sidenav [expanded]="expanded"></app-sidenav>
+      <button mat-icon-button (click)="onExpanded()" class="sidenav-button">
+        <mat-icon>{{
+          expanded ? "keyboard_arrow_left" : "keyboard_arrow_right"
+        }}</mat-icon>
+      </button>
+      <app-user-info class="user-info" [expanded]="expanded"></app-user-info>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content
+    [ngClass]="expanded ? 'content-expanded' : 'content-collapsed'"
+  >
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

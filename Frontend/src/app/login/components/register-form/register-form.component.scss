@@ -1,0 +1,38 @@
+.register-form {
+  padding: 1.5rem;
+  width: 30rem;
+  mat-card-header {
+    margin-bottom: 4rem !important;
+  }
+  .card-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--black);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .card-subtitle {
+    font-size: 1.2rem;
+  }
+  .register-button {
+    width: 20rem !important;
+  }
+  .register-section {
+    .register-text {
+      font-size: 1rem;
+    }
+    .login-button {
+      width: auto;
+      border: none;
+      background-color: var(--white);
+      font-size: 1rem;
+      color: var(--cerulean);
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .register-button:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.2rem;
+    }
+  }
+}

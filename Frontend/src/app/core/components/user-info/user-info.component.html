@@ -1,0 +1,10 @@
+<div class="user-info-container">
+  <mat-divider></mat-divider>
+  <div class="user-info-image">
+    <img [src]="user.image || defaultImage" alt="user" width="40" />
+    <div class="user-info-data" *ngIf="expanded">
+      <span>{{ user.name || "Nombre" }} {{ user.lastName || "Apellido" }}</span>
+      <span>{{ user.email || "Email" }}</span>
+    </div>
+  </div>
+</div>

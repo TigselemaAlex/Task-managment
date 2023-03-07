@@ -1,0 +1,80 @@
+<mat-card class="login-form" fxLayout="column" fxLayoutGap="1rem">
+  <mat-card-header fxLayoutAlign="center">
+    <mat-card-title class="card-title">Login</mat-card-title>
+    <mat-card-subtitle class="card-subtitle"
+      >Bienvenido de nuevo
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form fxLayout="column" fxLayoutGap=".3rem" [formGroup]="form">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          type="email"
+          matInput
+          placeholder="correo@correo.com"
+          formControlName="email"
+        />
+        <mat-error
+          class="mat-error"
+          *ngIf="form.get('email')?.hasError('email')"
+        >
+          Email no válido.
+        </mat-error>
+        <mat-error
+          class="mat-error"
+          *ngIf="form.get('email')?.hasError('required')"
+        >
+          El email es requerido.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          matInput
+          formControlName="password"
+        />
+        <mat-icon matSuffix (click)="onShowPassword($event)">{{
+          showPassword ? "visibility_off" : "visibility"
+        }}</mat-icon>
+        <mat-error
+          class="mat-error"
+          *ngIf="
+            form.get('password')?.hasError('minlength') ||
+            form.get('password')?.hasError('maxlength')
+          "
+        >
+          La contraseña debe tener de 6 a 12 caracteres.
+        </mat-error>
+        <mat-error
+          class="mat-error"
+          *ngIf="form.get('password')?.hasError('required')"
+        >
+          La contraseña es requerida.
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="1rem"
+  >
+    <button
+      class="login-button"
+      mat-fab
+      extended
+      color="primary"
+      (click)="signin()"
+    >
+      INGRESAR
+    </button>
+    <div class="register-section" fxLayoutGap="1rem">
+      <span class="register-text">¿No tienes una cuenta?</span>
+      <button class="register-button" (click)="onRegisterForm()">
+        REGISTRATE AHORA!!!
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

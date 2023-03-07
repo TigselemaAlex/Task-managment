@@ -1,0 +1,18 @@
+:host ::ng-deep {
+  .mat_list_item {
+    .mdc-list-item__primary-text {
+      display: flex !important;
+      align-items: center !important;
+      gap: 1rem;
+    }
+  }
+  mat-icon {
+    overflow: unset !important;
+  }
+}
+
+.navbar-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  white-space: nowrap;
+}

@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --white: #fff;
+  --black: #000;
+  --red: #e63946;
+  --honeydew: #f1faee;
+  --non-photo-blue: #a8dadc;
+  --cerulean: #457b9d;
+  --berkeley-blue: #1d3557;
+  --kelly-green: #4cbb17;
+}
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans", Roboto, "Helvetica Neue", sans-serif;
+  .error-snackbar {
+    .mdc-snackbar__surface {
+      background-color: var(--red);
+    }
+  }
+  .success-snackbar {
+    .mdc-snackbar__surface {
+      background-color: var(--kelly-green);
+    }
+  }
+  .mdc-snackbar__label {
+    font-size: 1rem !important;
+  }
+  .mat-error {
+    color: var(--red);
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+}

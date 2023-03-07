@@ -1,0 +1,10 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+  <app-login-form
+    *ngIf="!showRegisterForm"
+    (registerForm)="onShowRegisterForm($event)"
+  ></app-login-form>
+  <app-register-form
+    *ngIf="showRegisterForm"
+    (registerForm)="onShowRegisterForm($event)"
+  ></app-register-form>
+</div>

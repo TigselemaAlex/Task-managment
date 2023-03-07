@@ -1,0 +1,15 @@
+.container {
+  min-height: 100%;
+  padding: 2rem;
+  background-color: rgb(22, 78, 99);
+  background-image: radial-gradient(
+      at 81% 91%,
+      rgb(38, 38, 38) 0,
+      transparent 88%
+    ),
+    radial-gradient(at 19% 11%, rgb(55, 48, 163) 0, transparent 28%),
+    radial-gradient(at 85% 11%, rgb(67, 56, 202) 0, transparent 65%),
+    radial-gradient(at 41% 75%, rgb(76, 29, 149) 0, transparent 81%),
+    radial-gradient(at 13% 93%, rgb(8, 145, 178) 0, transparent 9%),
+    radial-gradient(at 67% 55%, rgb(124, 58, 237) 0, transparent 70%);
+}

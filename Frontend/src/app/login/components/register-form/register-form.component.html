@@ -1,0 +1,128 @@
+<mat-card class="register-form" fxLayout="column" fxLayoutGap="1rem">
+  <mat-card-header fxLayoutAlign="center">
+    <mat-card-title class="card-title">Registro</mat-card-title>
+    <mat-card-subtitle class="card-subtitle"
+      >Ingresa tus datos personales
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form fxLayout="column" [formGroup]="form" fxLayoutGap=".3rem">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          type="email"
+          matInput
+          placeholder="correo@correo.com"
+          formControlName="email"
+        />
+        <mat-error
+          class="mat-error"
+          *ngIf="form.get('email')?.hasError('email')"
+        >
+          Email no válido.
+        </mat-error>
+        <mat-error
+          class="mat-error"
+          *ngIf="form.get('email')?.hasError('required')"
+        >
+          El email es requerido.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          matInput
+          formControlName="password"
+        />
+        <mat-icon matSuffix (click)="onShowPassword($event)">{{
+          showPassword ? "visibility_off" : "visibility"
+        }}</mat-icon>
+        <mat-error
+          class="mat-error"
+          *ngIf="
+            form.get('password')?.hasError('minlength') ||
+            form.get('password')?.hasError('maxlength')
+          "
+        >
+          La contraseña debe tener de 6 a 12 caracteres.
+        </mat-error>
+        <mat-error
+          class="mat-error"
+          *ngIf="form.get('password')?.hasError('required')"
+        >
+          La contraseña es requerida.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Repita su contraseña</mat-label>
+        <input type="password" matInput formControlName="confirmPassword" />
+        <mat-error
+          class="mat-error"
+          *ngIf="form.errors?.['notMatch'] && form.get('confirmPassword')?.value.toString().length > 0"
+        >
+          Las contraseñas no coinciden.
+        </mat-error>
+        <mat-error
+          class="mat-error"
+          *ngIf="form.get('confirmPassword')?.hasError('required')"
+        >
+          La contraseña es requerida.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input type="text" matInput formControlName="name" />
+        <mat-error
+          class="mat-error"
+          *ngIf="form.get('name')?.hasError('required')"
+        >
+          El nombre es requerido.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Apellido</mat-label>
+        <input type="text" matInput formControlName="lastName" />
+        <mat-error
+          class="mat-error"
+          *ngIf="form.get('lastName')?.hasError('required')"
+        >
+          El apellido es requerido.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Telefono</mat-label>
+        <input type="text" matInput formControlName="phone" />
+        <mat-error
+          class="mat-error"
+          *ngIf="form.get('phone')?.hasError('required')"
+        >
+          El teléfono es requerido.
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="1rem"
+  >
+    <button
+      type="button"
+      class="register-button"
+      mat-fab
+      extended
+      color="primary"
+      (click)="register()"
+      [disabled]="form.invalid"
+    >
+      REGISTRARSE
+    </button>
+    <div class="register-section" fxLayoutGap="1rem">
+      <span class="register-text">¿Ya tienes una cuenta?</span>
+      <button type="button" class="login-button" (click)="onRegisterForm()">
+        LOGEATE!!!
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

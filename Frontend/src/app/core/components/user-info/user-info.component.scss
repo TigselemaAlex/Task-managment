@@ -1,0 +1,19 @@
+.user-info-container {
+  background-color: var(--cerulean);
+
+  .user-info-image {
+    display: flex;
+    padding: 1rem 0.6rem;
+    gap: 1rem;
+    align-items: flex-start;
+    img {
+      border-radius: 50%;
+    }
+    .user-info-data {
+      display: grid;
+      grid-auto-rows: max-content;
+      white-space: nowrap;
+      color: var(--honeydew);
+    }
+  }
+}
