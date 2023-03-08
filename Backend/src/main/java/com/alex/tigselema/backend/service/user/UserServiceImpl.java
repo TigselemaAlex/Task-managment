@@ -18,6 +18,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 
 @Service
 @Transactional
@@ -54,8 +56,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public ResponseEntity<APIResponse<?>> findByID(UUID id) {
+        User user = userRepository.findById(id).orElseThrow(()-> new UserNotFoundException(id.toString()));
+        return responseBuilder.buildResponse(HttpStatus.OK.value(), "Usuario encontrado", userMapper.userResponseDtoFromUser(user));
+    }
+
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(username).orElseThrow( ()-> new UserNotFoundException(username));
-        return UserMapper.INSTANCE.userPrincipalFromUser(user);
+        return userMapper.userPrincipalFromUser(user);
     }
 }

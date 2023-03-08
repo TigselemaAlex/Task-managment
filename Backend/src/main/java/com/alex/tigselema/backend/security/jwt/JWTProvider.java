@@ -13,8 +13,8 @@ import java.util.Date;
 @Component
 public class JWTProvider {
 
-    @Value("${jwt.secret}")
-    private String secret;
+
+    private final Key secret = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
     @Value("${jwt.expirationInMs}")
     private int expirationTimeInMs;
@@ -25,19 +25,17 @@ public class JWTProvider {
         int HOURS = 2;
         Date expiryDate = new Date(now.getTime() + expirationTimeInMs * 1000L * HOURS);
 
-        Key key = Keys.hmacShaKeyFor(secret.getBytes());
         return Jwts.builder()
                 .setSubject(userPrincipal.getUsername())
                 .setIssuedAt(now)
                 .setExpiration(expiryDate)
-                .signWith(key)
+                .signWith(secret)
                 .compact();
     }
 
     public String getEmailFromJWT(String jwt){
-        Key key = Keys.hmacShaKeyFor(secret.getBytes());
         Claims claims = Jwts.parserBuilder()
-                .setSigningKey(key)
+                .setSigningKey(secret)
                 .build()
                 .parseClaimsJws(jwt)
                 .getBody();
@@ -46,9 +44,8 @@ public class JWTProvider {
 
     public boolean validateJWT(String jwt){
         try {
-            Key key = Keys.hmacShaKeyFor(secret.getBytes());
             Jwts.parserBuilder()
-                    .setSigningKey(key)
+                    .setSigningKey(secret)
                     .build()
                     .parseClaimsJws(jwt);
             return true;
