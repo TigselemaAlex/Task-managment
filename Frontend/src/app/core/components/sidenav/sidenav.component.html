@@ -4,6 +4,7 @@
     fxLayout="row"
     fxLayoutAlign="start center"
     fxLayoutGap="1rem"
+    class="sidenav-header"
   >
     <img src="assets\img\task-icon.webp" width="30" height="30" />
     <span class="navbar-title" *ngIf="expanded">TASK MANAGMENT</span>
@@ -14,7 +15,6 @@
       *ngFor="let item of menu"
       mat-list-item
       [routerLink]="'./' + item.url"
-      routerLinkActive="router-link-active"
       class="mat_list_item"
     >
       <mat-icon>{{ item.icon }}</mat-icon>

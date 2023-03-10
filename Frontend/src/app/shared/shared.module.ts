@@ -1,3 +1,4 @@
+/* MODULES */
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -11,9 +12,22 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterModule } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
+/* COMPONENTS */
+import { TitleComponent } from './components/title/title.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [TitleComponent],
+  imports: [
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    FlexLayoutModule,
+    CommonModule,
+    MatInputModule,
+    MatDividerModule,
+  ],
   exports: [
     CommonModule,
     RouterModule,
@@ -27,6 +41,8 @@ import { RouterModule } from '@angular/router';
     MatSidenavModule,
     MatListModule,
     MatDividerModule,
+    MatToolbarModule,
+    TitleComponent,
   ],
 })
 export class SharedModule {}

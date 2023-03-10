@@ -4,12 +4,18 @@
   .sidenav {
     transition: width 0.2s ease-out;
     width: 4rem;
+
     .sidenav-container {
       height: 100%;
+      overflow: hidden !important;
       .sidenav-button {
         margin-top: auto;
         margin-left: auto;
         margin-right: 0.6rem;
+        color: var(--neon-blue);
+        mat-icon {
+          font-weight: bolder;
+        }
       }
     }
   }

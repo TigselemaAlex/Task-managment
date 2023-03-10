@@ -1,0 +1,29 @@
+<mat-toolbar class="toolbar-container">
+  <div
+    class="toolbar-menu"
+    fxLayout="row"
+    fxLayoutAlign="start center"
+    fxLayoutGap="1rem"
+    *ngIf="menuItem.label == 'Tareas' || menuItem.label == 'Importantes'"
+  >
+    <button mat-raised-button class="toolbar-button">
+      <mat-icon>add</mat-icon>
+      Nuevo
+    </button>
+    <mat-form-field appearance="outline">
+      <input matInput placeholder="Buscar" />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div
+    class="toolbar-title"
+    fxLayout="row"
+    fxLayoutAlign="start center"
+    fxLayoutGap=".5rem"
+  >
+    <mat-icon>{{ menuItem.icon }}}}</mat-icon>
+    <div class="toolbar-vertical-divider"></div>
+    <span>{{ menuItem.label }}</span>
+  </div>
+</mat-toolbar>

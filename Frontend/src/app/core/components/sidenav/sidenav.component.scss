@@ -4,6 +4,7 @@
       display: flex !important;
       align-items: center !important;
       gap: 1rem;
+      color: var(--navy-blue);
     }
   }
   mat-icon {
@@ -15,4 +16,8 @@
   font-size: 1.2rem;
   font-weight: 500;
   white-space: nowrap;
+  color: var(--navy-blue);
+}
+.sidenav-header {
+  height: 2.4rem;
 }

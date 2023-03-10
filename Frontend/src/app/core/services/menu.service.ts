@@ -15,4 +15,8 @@ export class MenuService {
       { icon: 'manage_accounts', label: 'Configuración', url: '/config' },
     ];
   }
+
+  getMenuItem(url: string = ''): MenuItem {
+    return this.createMenu().find((item) => item.url === url)!;
+  }
 }
